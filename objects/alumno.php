@@ -121,7 +121,12 @@ class Alumno{
         $this->nocontrol = $row['no_control'];
         $this->rol = $row['rol'];
     }
-
+    function readAll(){
+        $query = "SELECT nombre, picture, no_control FROM " . $this->table_name . "";
+        $sql = $this->conn->prepare( $query );
+        $sql->execute();
+        return $sql;
+    }
 }
 
 ?>
