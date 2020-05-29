@@ -121,8 +121,42 @@ class Alumno{
         $this->nocontrol = $row['no_control'];
         $this->rol = $row['rol'];
     }
+    function readByControl(){
+     
+        // query to read single record
+        $query = "SELECT
+                    *
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                    username = ?
+                LIMIT
+                    0,1";
+     
+        // prepare query statement
+        $sql = $this->conn->prepare( $query );
+     
+        // bind id of product to be updated
+        $sql->bindParam(1, $this->username);
+     
+        // execute query
+        $sql->execute();
+     
+        // get retrieved row
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+     
+        // set values to object properties
+        $this->uid = $row['uid'];
+        $this->displayName = $row['nombre'];
+        $this->email = $row['email'];
+        $this->photoURL = $row['picture'];
+        $this->username = $row['username'];
+        $this->nocontrol = $row['no_control'];
+        $this->rol = $row['rol'];
+    }
+
     function readAll(){
-        $query = "SELECT nombre, picture, no_control FROM " . $this->table_name . "";
+        $query = "SELECT nombre, picture, no_control, username FROM " . $this->table_name . "";
         $sql = $this->conn->prepare( $query );
         $sql->execute();
         return $sql;

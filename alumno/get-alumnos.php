@@ -32,7 +32,8 @@ if($num>0){
         $alumno_item=array(
             "displayName" => $nombre,
             "photoURL" => $picture,
-            "nocontrol" => $no_control
+            "nocontrol" => $no_control,
+            "username" => $username
         );
  
         array_push($alumnos_arr["records"], $alumno_item);
