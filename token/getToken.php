@@ -1,8 +1,8 @@
 <?php
 
-require '../vendor/autoload.php';
+/*require '../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable('/var/www/html/api-repos');
-$dotenv->load();
+$dotenv->load();*/
 
 
 // required headers
